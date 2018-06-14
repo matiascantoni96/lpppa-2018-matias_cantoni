@@ -1,11 +1,16 @@
-console.log("perfdas<");
+console.log("2das");
 
 var play = function () {
-  var cells = Board.getCells();
-  Board.updateCells(cells)
+  var liAlives = Board.getCells();
+   Board.updateCells(liAlives);
 }
-window.onload = function() {/* Se ejecuta luego de que se cargue todo el html */
-  Board.createCells();
-  var btnPlay = Board.getPlayButton();
-  btnPlay.onclick = play;
-}
+
+var init = function () {
+  Game.init();
+  Game.start();
+  }
+
+  //var btnPlay = Board.getPlayButton();
+  //btnPlay.onclick = play;
+
+window.onload = init;

@@ -4,11 +4,12 @@ var Board ={
   getBoard: function () {
     return document.getElementsByClassName('board')[0];
   },
-  getPlayButton: function(){
-    return document.getElementById('play');
-  },
   getCells: function(){
-   return document.getElementsByClassName('alive');
+    var board = Board.getBoard(); /*tengo qe recuperar el board primero*/
+    return board.getElementsByTagName('li');
+  },
+  getAliveCells: function () {
+    return document.getElementsByClassName('alive')
   },
   createCells: function () {
     var board = Board.getBoard();
@@ -19,9 +20,9 @@ var Board ={
     }
     board.innerHTML = html;
   },
-  updateCells: function (cells) {
-    for (var i = 0; i < cells.length; i++) {
-      Cell.changeColor(cells[i]);
-    }
+  nextStep: function() {
+    var boardHTML = Board.getCells();
+    var currentBoard = GameOfLife.getBoardFromHTML(boardHTML, Board.columns);
+    console.log(currentBoard);
   }
 }
