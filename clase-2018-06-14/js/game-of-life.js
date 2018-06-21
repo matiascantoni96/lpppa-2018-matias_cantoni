@@ -31,9 +31,12 @@ var GameOfLife = {
       for (var j = 0; j < row.length; j++) {
         var cell = row[j];
         var willBeAlive =  GameOfLife.applyRule(a , i, j);
-
+        if (willBeAlive) {
+          b[i][j] = true;
+        }
       }
     }
+
   },
   applyRule: function(currentBoard, posX, posY) {
     console.log(currentBoard, posX, posY);

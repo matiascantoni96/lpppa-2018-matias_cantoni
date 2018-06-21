@@ -24,5 +24,21 @@ var Board = {
    var currentBoard = GameOfLife.getBoardFromHTML(boardHTML, Board.columns);
    var newBoard = GameOfLife.createEmptyBoard(Board.rows, Board.columns);
    GameOfLife.getNextStep(currentBoard, newBoard);
+   Board.updateCells(newBoard);
+ },
+ updateCells: function(boardJS) {
+  var board = Board.getBoard();
+  var html = '';
+  for (var i = 0; i < (Board.rows); i++) {
+    for (var j = 0; j < Board.columns; j++) {
+      if (boardJS[i][j]) {
+        html += '<li class="alive"></li>';
+      }
+      else {
+        html += '<li class=""></li>';
+      }
+    }
   }
+  board.innerHTML = html;
+ }
 }
