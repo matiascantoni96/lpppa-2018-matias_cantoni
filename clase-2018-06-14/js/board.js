@@ -22,6 +22,7 @@ var Board = {
   nextStep: function() {
    var boardHTML = Board.getCells();
    var currentBoard = GameOfLife.getBoardFromHTML(boardHTML, Board.columns);
-   console.log(currentBoard);
+   var newBoard = GameOfLife.createEmptyBoard(Board.rows, Board.columns);
+   GameOfLife.getNextStep(currentBoard, newBoard);
   }
 }
